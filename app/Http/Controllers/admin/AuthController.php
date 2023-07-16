@@ -22,10 +22,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        // $validator = Validator::make($request->all(), [
-        //     'email' => 'required|email|exists:users,email',
-        //     'password' => 'required'
-        // ]);
+
 
 
         if (!Auth::attempt($validated)) {
