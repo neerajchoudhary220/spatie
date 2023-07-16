@@ -22,10 +22,6 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        // $validator = Validator::make($request->all(), [
-        //     'email' => 'required|email|exists:users,email',
-        //     'password' => 'required'
-        // ]);
 
 
         if (!Auth::attempt($validated)) {
@@ -34,12 +30,7 @@ class AuthController extends Controller
             // dd("Error");
         }
         $user = Auth::user();
-        // dd($user);
 
-        // dd($request->user()->getRoleNames());
-        // get all permissions for the user, either directly, or from roles, or from both
-        // $permissions = $user->getDirectPermissions();
-        // $permissions = $user->getPermissionsViaRoles();
 
         $permissions = $user->getAllPermissions();
         dd($permissions);
